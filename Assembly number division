@@ -1,0 +1,29 @@
+	INP
+	STA dividendo
+	INP 
+	STA divisor
+	LDA dividendo
+
+	LOOP SUB divisor
+	STA dividendo
+	LDA quociente
+	ADD ONE
+	STA quociente
+	LDA dividendo
+	BRZ END
+	BRP LOOP
+	BRA NEGATIVO
+	NEGATIVO LDA quociente
+	SUB ONE
+	STA quociente
+	BRA END
+
+	END LDA quociente
+	OUT
+	HLT
+
+dividendo DAT
+divisor DAT 
+quociente DAT 0
+negativo DAT
+ONE DAT 1
